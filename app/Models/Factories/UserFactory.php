@@ -30,6 +30,7 @@ class UserFactory extends UserModel
         $username = url_title($username, '-', true);
 
         if ($this->where('username', $username)->first()) {
+            helper('text');
             $username .= '-' . random_string('alnum', 4);
         }
 
