@@ -65,7 +65,7 @@ class UpdateVisits extends BaseCommand
         // all users that have a last_active date of today.
         model(UserModel::class)
             ->activeToday()
-            ->chunk(100, static function ($users) use ($db) {
+            ->chunk(100, static function ($user) use ($db) {
                 try {
                     $db->table('user_visits')
                         ->insert([
